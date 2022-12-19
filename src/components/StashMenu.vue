@@ -9,16 +9,18 @@ const props: any = defineProps<{
   cell: ISell;
 }>();
 
-const emit = defineEmits(["notOpenMenu"]);
+const emit = defineEmits(["onClickCloseMenu"]);
 
 function onClickDeleteCell (cell: ISell) {
   deleteCell(cell.id);
-  emit("notOpenMenu");
+  onClickCloseMenu();
 }
-
 function onClickCreateCellItem(cell: ISell) {
   addCell(countNewCell.value, cell.id, color);
-  emit("notOpenMenu");
+  onClickCloseMenu();
+}
+function onClickCloseMenu() {
+  emit("onClickCloseMenu");
 }
 
 function setStyleImgColor(colorCellItem: String) {
@@ -100,9 +102,9 @@ let color: string = `
         "
       ></div>
     </div>
-    <div class="menu-description">
+    <div class="menu__description">
       <div
-        class="menu-description-item"
+        class="menu__description-item"
         v-for="description in descriptions"
         :key="description?.id"
         :style="`width: ${description.width}px; height: ${description.height}px; margin-top:${description.margin}px;`"
@@ -121,7 +123,7 @@ let color: string = `
           <input type="text" v-model="countNewCell" />
         </div>
         <div class="add-active">
-          <div @click="emit('notOpenMenu')" class="not-open btn">
+          <div @click="onClickCloseMenu()" class="not-open btn">
             <span>Отмена</span>
           </div>
           <div @click="onClickCreateCellItem(cell)" class="create-cell btn">
@@ -138,8 +140,9 @@ let color: string = `
   background: rgba(38, 38, 38, 0.5);
   border-left: 1px solid #4D4D4D;
   backdrop-filter: blur(8px);
+  height: 100%;
 
-  &-description {
+  &__description {
     border-bottom: 1px solid #4D4D4D;
     padding-bottom: 20px;
     margin-bottom: 15px;
@@ -159,7 +162,7 @@ let color: string = `
 
   &__img {
     height: 215px;
-    margin: 20px;
+    margin: 0px 20px;
     border-bottom: 1px solid #4D4D4D;
     box-sizing: border-box;
     display: flex;
@@ -220,7 +223,7 @@ let color: string = `
 
   height: 100%;
   padding: 10px;
-  text-align: center; 
+  text-align: center;
 }
 .create-cell {
   height: 39px;

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-    import Stash from "../components/Stash.vue";
+import StashMain from "../components/StashMain.vue";
 </script>
 
 <template>
   <div>
-    <Stash/>
+    <StashMain />
   </div>
 </template>
