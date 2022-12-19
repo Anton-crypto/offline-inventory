@@ -1,41 +1,62 @@
 <script setup lang="ts">
-    import type { IItem } from '../interfaces/IItem';
+import type { IItem } from "../interfaces/IItem";
 
-    const props: any = defineProps<{
-        itemCell: IItem,
-    }>();
-
+const props: any = defineProps<{
+  itemCell: IItem;
+}>();
 </script>
 
 <template>
-    <div class="item">
-        <div class="item-static" :style="`background: ${ props.itemCell.color };`"></div>
-        <div class="item-phantom" :style="`background: ${ props.itemCell.colorBlur };`"></div>
-        <div class="item-count"> {{ props.itemCell.count }}</div>
-    </div>
+  <div class="stash-item">
+    <div
+      class="stash-item__static"
+      :style="`background: ${props.itemCell.color};`"
+    ></div>
+    <div
+      class="stash-item__phantom"
+      :style="`background: ${props.itemCell.colorBlur};`"
+    ></div>
+    <div class="stash-item__count">{{ props.itemCell.count }}</div>
+  </div>
 </template>
 
 <style scoped lang="scss">
-    .item {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        background: #2F2F2F;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+.stash-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #2f2f2f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-        &-static{
-            width: 48px;
-            height: 48px;
-        }
-        &-phantom {
-            position: absolute;
-            width: 48px;
-            height: 48px;
-            backdrop-filter: blur(6px);
-            transform: translate(6px, -6px);
-        }
-    }
+  &__static {
+    width: 48px;
+    height: 48px;
+  }
+  &__phantom {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    backdrop-filter: blur(6px);
+    transform: translate(6px, -6px);
+  }
+  &__count {
+    position: absolute;
+    bottom: 0;
+    right: -1px;
+    background: #262626;
+    border: 1px solid #4d4d4d;
+    border-radius: 6px 0px 0px 0px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: #ffffff;
+    opacity: 0.4;
+    padding: 4px;
+  }
+}
 </style>
