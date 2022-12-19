@@ -54,7 +54,7 @@
     </div>
 </template>
 
-<style scoped> 
+<style scoped lang="scss"> 
     .stash {
         display: flex;
         justify-content: space-between;

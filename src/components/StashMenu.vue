@@ -102,59 +102,62 @@
     </div>
 </template>
 
-<style scoped> 
-    .menu-description {
-        border-bottom: 1px solid #4D4D4D;
-        padding-bottom: 20px;
-        margin-bottom: 15px;
-        margin-left: 20px;
-        margin-right: 20px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        align-content: stretch;
-        justify-content: flex-start;
-    }
-    .menu-description-item {
-        background: linear-gradient(90deg, #3C3C3C 0%, #444444 51.04%, #333333 100%);
-        border-radius: 8px;
-    }
+<style scoped lang="scss"> 
     .menu {
         background: rgba(38, 38, 38, 0.5);
         border-left: 1px solid #4D4D4D;
         backdrop-filter: blur(8px);
-    }
-    .menu-img {
-        height: 215px;
-        margin: 20px;
-        border-bottom: 1px solid #4D4D4D;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: space-around;
-        align-content: space-between;
-        align-items: center;
-    }
-    .menu-img-static{
-        width: 115.56px;
-        height: 115.56px;
-    }
-    .menu-img-phantom {
-        position: absolute;
-        width: 115.56px;
-        height: 115.56px;
-        backdrop-filter: blur(12px);
-        transform: translate(15px, -15px);
-    }
-    .menu-active {
-        margin: 0 auto;
-        width: 100%;
-        padding: 20px;
-        position: absolute;
-        bottom: 0px;
-        background: rgba(38, 38, 38, 0.6);
-        border-top: 1px solid #4D4D4D;
-        backdrop-filter: blur(8px);
+
+        &-description {
+            border-bottom: 1px solid #4D4D4D;
+            padding-bottom: 20px;
+            margin-bottom: 15px;
+            margin-left: 20px;
+            margin-right: 20px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: stretch;
+            justify-content: flex-start;
+            &-item {
+                background: linear-gradient(90deg, #3C3C3C 0%, #444444 51.04%, #333333 100%);
+                border-radius: 8px;
+            }
+        }
+
+        &-img {
+            height: 215px;
+            margin: 20px;
+            border-bottom: 1px solid #4D4D4D;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-around;
+            align-content: space-between;
+            align-items: center;
+
+            &-static{
+                width: 115.56px;
+                height: 115.56px;
+            }
+            &-phantom {
+                position: absolute;
+                width: 115.56px;
+                height: 115.56px;
+                backdrop-filter: blur(12px);
+                transform: translate(15px, -15px);
+            }
+        }
+        &-active {
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px;
+            position: absolute;
+            bottom: 0px;
+            background: rgba(38, 38, 38, 0.6);
+            border-top: 1px solid #4D4D4D;
+            backdrop-filter: blur(8px);
+        }
     }
     .del-cell {
         height: 39px;

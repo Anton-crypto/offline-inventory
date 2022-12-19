@@ -15,7 +15,7 @@
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
     .item {
         position: relative;
         width: 100%;
@@ -25,16 +25,17 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-    }
-    .item-static{
-        width: 48px;
-        height: 48px;
-    }
-    .item-phantom {
-        position: absolute;
-        width: 48px;
-        height: 48px;
-        backdrop-filter: blur(6px);
-        transform: translate(6px, -6px);
+
+        &-static{
+            width: 48px;
+            height: 48px;
+        }
+        &-phantom {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            backdrop-filter: blur(6px);
+            transform: translate(6px, -6px);
+        }
     }
 </style>

@@ -29,7 +29,7 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
     .stash-cell {
         width: 104px;
         height: 99px;
