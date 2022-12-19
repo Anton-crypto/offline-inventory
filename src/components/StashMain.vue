@@ -15,7 +15,10 @@ let cellOpenMenu = ref({} as ISell);
 let oldCellId: Number = -1;
 
 function onClickOpenStashMenu(cell: ISell) {
-  if (oldCellId == cell.id && openStashMenu.value == true) {
+  if (
+    (oldCellId == cell.id || cell.item.count == 0) &&
+    openStashMenu.value == true
+  ) {
     openStashMenu.value = false;
   } else {
     openStashMenu.value = true;
@@ -31,7 +34,7 @@ function onClickCloseMenu() {
 <template>
   <div>
     <div class="stash">
-      <InfoCharacter></InfoCharacter>
+      <InfoCharacter class="stash__character"></InfoCharacter>
       <div class="stash__table">
         <StashCell
           v-for="cell in cells"
@@ -63,6 +66,9 @@ function onClickCloseMenu() {
 .stash {
   display: flex;
   justify-content: space-between;
+  &__character {
+    margin-right: 20px;
+  }
   &__table {
     background: #262626;
     border: 1px solid #4D4D4D;

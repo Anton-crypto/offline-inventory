@@ -145,9 +145,7 @@ let color: string = `
   &__description {
     border-bottom: 1px solid #4D4D4D;
     padding-bottom: 20px;
-    margin-bottom: 15px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 15px 20px;
 
     display: flex;
     flex-direction: column;
