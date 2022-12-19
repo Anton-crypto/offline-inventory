@@ -8,22 +8,25 @@
     const props: any = defineProps<{
         cell: ISell,
     }>();
+
     const emit = defineEmits(['notOpenMenu'])
 
     function onClickDeleteCell (cell: ISell) {
         deleteCell(cell.id);
         emit('notOpenMenu');
     }
+
     function onClickCreateCellItem (cell: ISell) {
         addCell(countNewCell, cell.id, color);
         emit('notOpenMenu');
     }
+
     let descriptions :any = [
         {
         id: 1,
         width: 190,
         height: 26,
-        margin: 24,
+        margin: 0,
         },
         {
         id: 2,
@@ -70,7 +73,7 @@
             <div class="menu-img-static" :style="`background: rgba(${color});`"></div>
             <div class="menu-img-phantom" :style="`background: rgba(${color}, 0.35);`"></div>
         </div>
-        <div class="menu-description" v-if="cell.item.count > 0" >
+        <div class="menu-description">
             <div 
                 class="menu-description-item"
                 v-for="description in descriptions"
@@ -79,7 +82,7 @@
             ></div>
         </div>
         <div class="menu-active">
-            <div v-if="cell.item.count > 0" @click="onClickDeleteCell(cell)" class="del-cell">
+            <div v-if="cell.item.count > 0" @click="onClickDeleteCell(cell)" class="del-cell btn">
                 <span>Удалить предмет</span>
             </div>
             <div v-else>
@@ -87,10 +90,10 @@
                     <input type="text" v-model="countNewCell">
                 </div>
                 <div class="add-active">
-                    <div @click="emit('notOpenMenu');" class="not-open">
+                    <div @click="emit('notOpenMenu');" class="not-open btn">
                         <span>Отмена</span>
                     </div>
-                    <div @click="onClickCreateCellItem(cell)" class="create-cell">
+                    <div @click="onClickCreateCellItem(cell)" class="create-cell btn">
                         <span>Подтвердить</span>
                     </div>
                 </div>
@@ -100,6 +103,23 @@
 </template>
 
 <style scoped> 
+    .menu-description {
+        border-bottom: 1px solid #4D4D4D;
+        padding-bottom: 20px;
+        margin-bottom: 15px;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: stretch;
+        justify-content: flex-start;
+    }
+    .menu-description-item {
+        background: linear-gradient(90deg, #3C3C3C 0%, #444444 51.04%, #333333 100%);
+        border-radius: 8px;
+    }
     .menu {
         background: rgba(38, 38, 38, 0.5);
         border-left: 1px solid #4D4D4D;
@@ -127,10 +147,16 @@
         transform: translate(15px, -15px);
     }
     .menu-active {
-        margin: 0 21px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 20px;
+        position: absolute;
+        bottom: 0px;
+        background: rgba(38, 38, 38, 0.6);
+        border-top: 1px solid #4D4D4D;
+        backdrop-filter: blur(8px);
     }
     .del-cell {
-        width: 220px;
         height: 39px;
         background: #FA7272;
         border-radius: 8px;
@@ -140,9 +166,6 @@
         height: 100%;
         padding: 10px;
         color: #FFFFFF;
-        font-family: 'SF Pro Display';
-        font-style: normal;
-        font-weight: 400;
         font-size: 14px;
         line-height: 17px;
         cursor: pointer;
@@ -154,15 +177,12 @@
     .not-open {
         background: #FFFFFF;
         border-radius: 8px;
-
-        font-family: 'SF Pro Display';
-        font-style: normal;
-        font-weight: 400;
         font-size: 14px;
         line-height: 17px;
         color: #2D2D2D;
         width: 88px;
         height: 33px;
+        cursor: pointer;
 
         height: 100%;
         padding: 10px;
@@ -178,9 +198,6 @@
         height: 100%;
         padding: 10px;
         color: #FFFFFF;
-        font-family: 'SF Pro Display';
-        font-style: normal;
-        font-weight: 400;
         font-size: 14px;
         line-height: 17px;
         cursor: pointer;

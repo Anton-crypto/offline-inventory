@@ -6,6 +6,11 @@
   <InventoryView />
 </template>
 
-<style scoped>
+<style>
+  .btn {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+  }
 
 </style>

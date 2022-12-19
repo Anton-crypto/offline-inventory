@@ -1,10 +1,8 @@
 <script setup lang="ts">
 
   import StashItem from "./StashItem.vue";
-
-  import { getItemsById, saveInToLocalStore } from "@/use/useStash";
   import { onDragStart, onDrop } from "@/use/useDragAndDrop";
-  
+
   import type { ISell } from '../interfaces/ISell';
   
   

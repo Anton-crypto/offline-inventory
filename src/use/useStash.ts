@@ -34,12 +34,12 @@ const cells: Ref<ISell | any> = ref([
 ]);
 
 function init () {
-    // let cell = getInToLocalStoreJSON();
+    let cell = getInToLocalStoreJSON();
 
-    // if(cell != null) {
-    //     cells.value = JSON.parse(cell);
-    //     return;
-    // }
+    if(cell != null) {
+        cells.value = JSON.parse(cell);
+        return;
+    }
 
     for (let index = 4; index < 26; index++) {
         cells.value.push({ 
@@ -58,15 +58,14 @@ init();
 function getCells () {
     return cells.value;
 }
-function getCellsById () {
-
-}
 function addCell (countCell: Number, idCell: any, color: string) {
     const sell = getItemsById(idCell);
 
     sell.item.color = `rgba(${color})`
     sell.item.colorBlur = `rgba(${color}, 0.35)`
     sell.item.count = countCell
+
+    saveInToLocalStore()
 }
 
 function getRandomInt(max : Number) {
@@ -90,6 +89,8 @@ function deleteCell (cellId: any) {
     sell.item.color = ""
     sell.item.colorBlur = ""
     sell.item.count = 0
+
+    saveInToLocalStore()
 }
 
 export {

@@ -37,7 +37,4 @@
         backdrop-filter: blur(6px);
         transform: translate(6px, -6px);
     }
-    .item-count {
-
-    }
 </style>
