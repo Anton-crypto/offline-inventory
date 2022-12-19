@@ -26,6 +26,12 @@ function setStyleImgColor(colorCellItem: String) {
 }
 
 function setStyleImgColorBlur(colorCellItem: String) {
+  return `background: rgba(${colorCellItem});`;
+}
+function setStyleImgColorNew(colorCellItem: String) {
+  return `background: rgba(${colorCellItem});`;
+}
+function setStyleImgColorBlurNew(colorCellItem: String) {
   return `background: rgba(${colorCellItem}, 0.35);`;
 }
 
@@ -68,26 +74,29 @@ let descriptions: any = [
     },
 ];
 
-let color: string = `${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)}`
+let color: string = `
+  ${getRandomInt(255)}, 
+  ${getRandomInt(255)}, 
+  ${getRandomInt(255)}`;
 </script>
 
 <template>
   <div class="menu">
     <div class="menu__img">
       <div
-        class="menu__img-static"  
+        class="menu__img-static"
         :style="
           cell.item.count > 0
             ? setStyleImgColor(props.cell.item.color)
-            : setStyleImgColor(color)
+            : setStyleImgColorNew(color)
         "
       ></div>
       <div
-        class="menu__img-phantom" 
+        class="menu__img-phantom"
         :style="
           cell.item.count > 0
             ? setStyleImgColorBlur(props.cell.item.colorBlur)
-            : setStyleImgColor(color)
+            : setStyleImgColorBlurNew(color)
         "
       ></div>
     </div>
