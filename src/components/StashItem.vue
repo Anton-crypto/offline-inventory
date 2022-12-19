@@ -30,6 +30,7 @@ const props: any = defineProps<{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: grab;
 
   &__static {
     width: 48px;

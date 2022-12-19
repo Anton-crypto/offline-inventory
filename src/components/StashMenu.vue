@@ -11,7 +11,7 @@ const props: any = defineProps<{
 
 const emit = defineEmits(["onClickCloseMenu"]);
 
-function onClickDeleteCell (cell: ISell) {
+function onClickDeleteCell(cell: ISell) {
   deleteCell(cell.id);
   onClickCloseMenu();
 }
