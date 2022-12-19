@@ -1,9 +1,26 @@
 <script setup lang="ts">
     import InfoCharacter from './InfoCharacter.vue';
+    import StashMenu from './StashMenu.vue';
     import StashCell from './StashCell.vue';
+    import { ref } from "vue"
+
     import { getCells } from "../use/useStash"
 
-    let cells : any = getCells();
+    import type { ISell } from '@/interfaces/ISell';
+
+    let cells : ISell[] = getCells();
+
+    let openStashMenu = ref(false);
+
+    let cellOpenMenu = ref({})
+
+    function onClickOpenStashMenu(cell : ISell) {
+        cellOpenMenu.value = cell;
+        openStashMenu.value = !openStashMenu.value;
+    }
+    function notOpenMenu() {
+        openStashMenu.value = !openStashMenu.value;
+    }
 </script>
 
 <template>
@@ -14,8 +31,15 @@
                 v-for="cell in cells" 
                 :key="cell?.id"
                 :cell="cell"
+                @click="onClickOpenStashMenu(cell)"
             > 
             </StashCell>
+            <div class="menu" v-if="openStashMenu">
+                <StashMenu
+                    :cell = "cellOpenMenu"
+                    @notOpenMenu = "notOpenMenu"
+                ></StashMenu>
+            </div>
         </div>
     </div>
 </template>
@@ -39,5 +63,12 @@
         height: 500px;
         flex-wrap: wrap;
         overflow: hidden;
+        position: relative;
+    }
+    .menu {
+        width: 250px;
+        height: 100%;
+        position: absolute;
+        right: 0;
     }
 </style>

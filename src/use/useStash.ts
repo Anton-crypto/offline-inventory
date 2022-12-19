@@ -47,6 +47,7 @@ function init () {
             item : {
                 id: 0,
                 color: "",
+                colorBlur: "",
                 count: 0,
             }
         })
@@ -60,6 +61,19 @@ function getCells () {
 function getCellsById () {
 
 }
+function addCell (countCell: Number, idCell: any, color: string) {
+    const sell = getItemsById(idCell);
+
+    sell.item.color = `rgba(${color})`
+    sell.item.colorBlur = `rgba(${color}, 0.35)`
+    sell.item.count = countCell
+}
+
+function getRandomInt(max : Number) {
+    return Math.floor(Math.random() * max);
+  }
+
+  
 function getItemsById (cellId: any) : ISell {
     return cells.value.filter(( x:ISell ) => x.id == cellId)[0];
 }
@@ -70,10 +84,19 @@ function saveInToLocalStore() {
 function getInToLocalStoreJSON() {
     return localStorage.getItem('cells');
 }
+function deleteCell (cellId: any) {
+    const sell = getItemsById(cellId)
 
+    sell.item.color = ""
+    sell.item.colorBlur = ""
+    sell.item.count = 0
+}
 
 export {
     getItemsById,
     getCells,
-    saveInToLocalStore
+    saveInToLocalStore,
+    deleteCell,
+    addCell,
+    getRandomInt,
 }
