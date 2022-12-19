@@ -12,9 +12,16 @@ let cells: ISell[] = getCells();
 let openStashMenu = ref(false);
 let cellOpenMenu = ref({} as ISell);
 
+let oldCellId: Number = -1;
+
 function onClickOpenStashMenu(cell: ISell) {
+  if (oldCellId == cell.id && openStashMenu.value == true) {
+    openStashMenu.value = false;
+  } else {
+    openStashMenu.value = true;
+  }
+  oldCellId = cell.id;
   cellOpenMenu.value = cell;
-  openStashMenu.value = !openStashMenu.value;
 }
 function onClickCloseMenu() {
   openStashMenu.value = !openStashMenu.value;
