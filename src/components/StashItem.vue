@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { IItem } from "@/interfaces/IItem";
 
-const props: any = defineProps<{
+const props = defineProps<{
   itemCell: IItem;
 }>();
 </script>

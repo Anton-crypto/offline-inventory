@@ -36,7 +36,7 @@ let descriptions: any = [
     height: 10,
     margin: 16,
   },
-];
+]; // Моковые данные по этой причине не стал делать интерфейс.
 </script>
 
 <template>

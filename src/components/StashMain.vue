@@ -12,11 +12,10 @@ import type { ISell } from "@/interfaces/ISell";
 let cells: ISell[] = getCells();
 let openStashMenu: Ref<boolean> = ref(false);
 let cellOpenMenu: Ref<ISell> = ref({} as ISell);
-let theme: Ref<boolean> = ref(true);
 
 let oldCellId: Number = -1;
 
-function onClickOpenStashMenu(cell: ISell) {
+function onClickOpenStashMenu(cell: ISell): void {
   if (
     (oldCellId == cell.id || cell.item.count == 0) &&
     openStashMenu.value == true
@@ -28,7 +27,7 @@ function onClickOpenStashMenu(cell: ISell) {
   oldCellId = cell.id;
   cellOpenMenu.value = cell;
 }
-function onClickCloseMenu() {
+function onClickCloseMenu(): void {
   openStashMenu.value = !openStashMenu.value;
 }
 </script>
