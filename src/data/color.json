@@ -1,0 +1,38 @@
+{
+  "dark" : [
+    {
+      "key": "--background",
+      "color": "#262626"
+    },
+    {
+      "key": "--background-item",
+      "color": "rgba(255, 255, 255, 0.1)"
+    },
+    {
+      "key": "--background-gradient-item",
+      "color": "linear-gradient(90deg,#3c3c3c 0%,#444444 51.04%,#333333 100%)"
+    },
+    {
+      "key": "--background-stash-item",
+      "color": "#2f2f2f"
+    }
+  ],
+  "light" : [
+    {
+      "key": "--background",
+      "color": "lavenderblush"
+    },
+    {
+      "key": "--background-item",
+      "color": "rgba(0, 0, 0, 0.1)"
+    },
+    {
+      "key": "--background-gradient-item",
+      "color": "linear-gradient(90deg,#dbdbdb 0%,#c7c7c7 51.04%,#f1f0f0 100%)"
+    },
+    {
+      "key": "--background-stash-item",
+      "color": "#dddada"
+    }
+  ]
+}

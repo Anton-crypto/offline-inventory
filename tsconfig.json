@@ -1,4 +1,9 @@
 {
+  "compilerOptions": {
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
   "files": [],
   "references": [
     {
@@ -10,5 +15,5 @@
     {
       "path": "./tsconfig.vitest.json"
     }
-  ]
+  ],
 }

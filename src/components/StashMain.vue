@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import InfoCharacter from "./InfoCharacter.vue";
-import StashMenu from "./StashMenu.vue";
-import StashCell from "./StashCell.vue";
+import InfoCharacter from "@/components/InfoCharacter.vue";
+import StashMenu from "@/components/StashMenu.vue";
+import StashCell from "@/components/StashCell.vue";
+import ThemeChange from "@/components/ThemeChange.vue";
+
 import { ref } from "vue";
-
-import { getCells } from "../use/useStash";
-
+import type { Ref } from "vue";
+import { getCells } from "@/use/useStash";
 import type { ISell } from "@/interfaces/ISell";
 
 let cells: ISell[] = getCells();
-let openStashMenu = ref(false);
-let cellOpenMenu = ref({} as ISell);
+let openStashMenu: Ref<boolean> = ref(false);
+let cellOpenMenu: Ref<ISell> = ref({} as ISell);
+let theme: Ref<boolean> = ref(true);
 
 let oldCellId: Number = -1;
 
@@ -34,6 +36,7 @@ function onClickCloseMenu() {
 <template>
   <div>
     <div class="stash">
+      <ThemeChange class="stash__theme-change"/>
       <InfoCharacter class="stash__character"></InfoCharacter>
       <div class="stash__table">
         <StashCell
@@ -78,9 +81,12 @@ function onClickCloseMenu() {
   &__character {
     margin-right: 20px;
   }
+  &__theme-change {
+    position: absolute;
+  }
   &__table {
-    background: #262626;
-    border: 1px solid #4D4D4D;
+    background: var(--background);
+    border: 1px solid var(--border-item);
     border-radius: 12px;
     box-sizing: border-box;
     display: flex;
@@ -101,18 +107,13 @@ function onClickCloseMenu() {
   &__bottom {
     width: 100%;
     height: 72px;
-    background: #262626;
-    border: 1px solid #4D4D4D;
+    background: var(--background);
+    border: 1px solid var(--border-item);
     border-radius: 12px;
     margin-top: 24px;
     position: relative;
     &__bar {
-      background: linear-gradient(
-        90deg,
-        #3c3c3c 0%,
-        #444444 51.04%,
-        #333333 100%
-      );
+      background: var(--background-gradient-item);
       border-radius: 12px;
       margin: 18px 68px 18px 18px;
       height: 36px;

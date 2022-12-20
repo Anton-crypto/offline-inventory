@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IItem } from "../interfaces/IItem";
+import type { IItem } from "@/interfaces/IItem";
 
 const props: any = defineProps<{
   itemCell: IItem;
@@ -25,7 +25,7 @@ const props: any = defineProps<{
   position: relative;
   width: 100%;
   height: 100%;
-  background: #2f2f2f;
+  background: var(--background-stash-item);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,8 +47,8 @@ const props: any = defineProps<{
     position: absolute;
     bottom: 0;
     right: -1px;
-    background: #262626;
-    border: 1px solid #4d4d4d;
+    background: var(--background);
+    border: 1px solid var(--border-item);
     border-radius: 6px 0px 0px 0px;
     font-family: 'Inter';
     font-style: normal;

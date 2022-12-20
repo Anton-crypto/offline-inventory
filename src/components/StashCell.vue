@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import StashItem from "./StashItem.vue";
+import StashItem from "@/components/StashItem.vue";
 import { onDragStart, onDrop } from "@/use/useDragAndDrop";
+import type { ISell } from "@/interfaces/ISell";
 
-import type { ISell } from "../interfaces/ISell";
-
-const props: any = defineProps<{
+const props = defineProps<{
   cell: ISell;
 }>();
 </script>
@@ -30,8 +29,8 @@ const props: any = defineProps<{
 .stash-cell {
   width: 104px;
   height: 99px;
-  border-bottom: 1px solid #4d4d4d;
-  border-right: 1px solid #4d4d4d;
+  border-bottom: 1px solid var(--border-item);
+  border-right: 1px solid var(--border-item);
   background: transparent;
 }
 .stash-cell:nth-child(25) {

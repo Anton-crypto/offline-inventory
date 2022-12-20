@@ -43,7 +43,7 @@ let descriptions: any = [
   <div class="character">
     <div class="character__img"></div>
     <div class="character__description">
-      <div 
+      <div
         class="character__description-item"
         v-for="description in descriptions"
         :key="description?.id"
@@ -56,14 +56,14 @@ let descriptions: any = [
 <style scoped lang="scss">
 .character {
   box-sizing: border-box;
-  background: #262626;
-  border: 1px solid #4D4D4D;
+  background: var(--background);
+  border: 1px solid var(--border-item);
   border-radius: 12px;
   padding: 18px 14px;
   &__img {
     width: 208px;
     height: 240px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--background-item);
     backdrop-filter: blur(6px);
     border-radius: 8px;
   }
@@ -74,12 +74,7 @@ let descriptions: any = [
     align-content: stretch;
     justify-content: flex-start;
     &-item {
-      background: linear-gradient(
-        90deg,
-        #3c3c3c 0%,
-        #444444 51.04%,
-        #333333 100%
-      );
+      background: var(--background-gradient-item);
       border-radius: 8px;
     }
   }

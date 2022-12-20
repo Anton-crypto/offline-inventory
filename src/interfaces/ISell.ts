@@ -1,8 +1,8 @@
-import type { IItem } from './IItem';
+import type { IItem } from "./IItem";
 
 interface ISell {
-    id: any,
-    item: IItem,
+  id: any;
+  item: IItem;
 }
 
-export { type ISell }
+export { type ISell };

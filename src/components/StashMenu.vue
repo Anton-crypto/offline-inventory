@@ -1,21 +1,22 @@
 <script setup lang="ts">
-import type { ISell } from "../interfaces/ISell";
+import type { ISell } from "@/interfaces/ISell";
 import { deleteCell, addCell, getRandomInt } from "@/use/useStash";
 import { ref } from "vue";
+import type { Ref } from "vue";
 
-let countNewCell = ref(0);
+let countNewCell: Ref<Number> = ref(0);
 
-const props: any = defineProps<{
+const props = defineProps<{
   cell: ISell;
 }>();
 
 const emit = defineEmits(["onClickCloseMenu"]);
 
-function onClickDeleteCell(cell: ISell) {
+function onClickDeleteCell(cell: ISell): void {
   deleteCell(cell.id);
   onClickCloseMenu();
 }
-function onClickCreateCellItem(cell: ISell) {
+function onClickCreateCellItem(cell: ISell): void {
   addCell(countNewCell.value, cell.id, color);
   onClickCloseMenu();
 }
@@ -138,12 +139,12 @@ let color: string = `
 <style scoped lang="scss">
 .menu {
   background: rgba(38, 38, 38, 0.5);
-  border-left: 1px solid #4D4D4D;
+  border-left: 1px solid var(--border-item);
   backdrop-filter: blur(8px);
   height: 100%;
 
   &__description {
-    border-bottom: 1px solid #4D4D4D;
+    border-bottom: 1px solid var(--border-item);
     padding-bottom: 20px;
     margin: 15px 20px;
 
@@ -153,7 +154,7 @@ let color: string = `
     align-content: stretch;
     justify-content: flex-start;
     &-item {
-      background: linear-gradient(90deg, #3C3C3C 0%, #444444 51.04%, #333333 100%);
+      background: var(--background-gradient-item);
       border-radius: 8px;
     }
   }
@@ -161,7 +162,7 @@ let color: string = `
   &__img {
     height: 215px;
     margin: 0px 20px;
-    border-bottom: 1px solid #4D4D4D;
+    border-bottom: 1px solid var(--border-item);
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
@@ -186,8 +187,8 @@ let color: string = `
     padding: 20px;
     position: absolute;
     bottom: 0px;
-    background: rgba(38, 38, 38, 0.6);
-    border-top: 1px solid #4D4D4D;
+    background: var(--background);
+    border-top: 1px solid var(--border-item);
     backdrop-filter: blur(8px);
   }
 }
@@ -241,8 +242,8 @@ let color: string = `
   box-sizing: border-box;
   width: 210px;
   height: 40px;
-  background: #262626;
-  border: 1px solid #4D4D4D;
+  background: var(--background);
+  border: 1px solid var(--border-item);
   border-radius: 4px;
   color: #FFFFFF;
 }
